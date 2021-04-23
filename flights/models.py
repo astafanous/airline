@@ -9,6 +9,7 @@ class Airport(models.Model):
         return f"{self.city} ({self.code})"
 
 class Flight(models.Model):
+    id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'))
     origin = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="departures")
     destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="arrivals")
     duration = models.IntegerField()
